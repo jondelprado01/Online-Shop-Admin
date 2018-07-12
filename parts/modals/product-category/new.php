@@ -42,7 +42,7 @@
 <?php
 
   if (isset($_POST['btn-save'])) {
-    require '../../parts/php/product-category/new.php';
+    require '../parts/php/product-category/new.php';
   }
 
  ?>
