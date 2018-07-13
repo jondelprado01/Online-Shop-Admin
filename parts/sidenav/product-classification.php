@@ -33,13 +33,13 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#" class="nav-link active">
+              <a href="../pages/product-category.php" class="nav-link">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>Product Category</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="../pages/product-classification.php" class="nav-link">
+              <a href="#" class="nav-link active">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>Product Classification</p>
               </a>

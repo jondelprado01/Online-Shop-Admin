@@ -54,7 +54,7 @@
   <!-- Main Sidebar Container -->
   <?php
 
-    require '../parts/sidenav/product-category.php';
+    require '../parts/sidenav/product-classification.php';
 
   ?>
 
@@ -65,12 +65,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Product Category</h1>
+            <h1 class="m-0 text-dark">Product Classification</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Product Category</li>
+              <li class="breadcrumb-item active">Product Classification</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -83,7 +83,7 @@
       <div class="container-fluid">
         <?php
 
-          require '../parts/datagrid/product-category.php';
+          require '../parts/datagrid/product-classification.php';
 
          ?>
       </div><!-- /.container-fluid -->

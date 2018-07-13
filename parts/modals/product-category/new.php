@@ -12,8 +12,20 @@
         <form class="categoryform" role="form" method="post" autocomplete="off" >
 
           <div class="form-group ">
-            <label><span class="glyphicon glyphicon-asterisk" style="color:red; font-size: 10px"></span> Category Name</label>
+            <label> Category Name</label>
             <input type="text" class="form-control" name="category_name" placeholder="Enter Product Category" maxlength="40">
+          </div>
+
+          <div class="form-group">
+            <label> Category Group</label>
+            <select class="form-control" name="category_group">
+              <option value="None">--Select a Group--</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Components">Components</option>
+              <option value="Laptops">Laptops</option>
+              <option value="Network Hardwares">Network Hardwares</option>
+              <option value="Peripherals">Peripherals</option>
+            </select>
           </div>
 
           <div class="row">
