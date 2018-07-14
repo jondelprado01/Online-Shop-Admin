@@ -2,20 +2,17 @@
 
   require '../connection.php';
 
-  $category = $_POST['category_name'];
-  $group = $_POST['category-group'];
-  $desc = $_POST['category-desc'];
+  $brand = $_POST['brand-name'];
   $status = "Active";
 
-  $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM product_category_table
-                 WHERE product_category = '$category' AND product_category_desc = '$desc'
-                 AND product_category_group = '$group' AND product_category_status = '$status'");
+  $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM brand_table
+                 WHERE brand_name = '$brand' AND brand_status = '$status'");
 
   $row = mysqli_fetch_row($checkRecord);
 
   if ($row[0] == 0) {
 
-    mysqli_query($conn, "INSERT INTO product_category_table VALUES('', '$category', '$group', '$desc', '$status')");
+    mysqli_query($conn, "INSERT INTO brand_table VALUES('', '$brand', '$status')");
 
 ?>
 

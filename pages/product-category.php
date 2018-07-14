@@ -54,7 +54,13 @@
   <!-- Main Sidebar Container -->
   <?php
 
-    require '../parts/sidenav/product-category.php';
+    $maintenanceOpen = "menu-open";
+    $maintenanceActive = "active";
+    $categoryActive = "active";
+    $classificationActive = "";
+    $brandActive = "";
+
+    require '../parts/common/sidenav.php';
 
   ?>
 
@@ -101,14 +107,12 @@
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  <?php
+
+    require '../parts/common/footer.php';
+
+   ?>
+
 </div>
 <!-- ./wrapper -->
 

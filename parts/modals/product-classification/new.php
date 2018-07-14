@@ -1,4 +1,4 @@
-<div class="modal fade" id="newClassification"  role="dialog" style="width: 100%" aria-hidden="true">
+<div class="modal fade" id="new-classification"  role="dialog" style="width: 100%" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,7 +13,7 @@
 
           <div class="form-group">
             <label> Category</label>
-            <select class="form-control" name="category_group">
+            <select class="form-control" name="category-group">
               <option value="None">-Select a Category-</option>
             <?php
 
@@ -36,7 +36,7 @@
 
           <div class="form-group">
             <label> Classification Name</label>
-            <input type="text" class="form-control" name="classification_name" placeholder="Enter Classification" maxlength="40">
+            <input type="text" class="form-control" name="classification-name" placeholder="Enter Classification" maxlength="40">
           </div>
 
       </div>

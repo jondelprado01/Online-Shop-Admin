@@ -1,7 +1,7 @@
 <?php
 
   require '../connection.php';
-  require '../parts/modals/product-category/new.php';
+  require '../parts/modals/brand/new.php';
 
  ?>
 
@@ -23,7 +23,7 @@
               </div>
 
               <div class="col-6">
-                <button data-target="#new-category" data-toggle="modal" class="btn btn-success btn-md pull-right">
+                <button data-target="#new-brand" data-toggle="modal" class="btn btn-success btn-md pull-right">
                   New <i class="fa fa-plus"></i></button>
               </div>
 
@@ -33,39 +33,36 @@
 
         <div class="card-body">
 
-          <table id="category-table" class="table table-bordered table-hover">
+          <table id="brand-table" class="table table-bordered table-hover">
             <thead style="background-color: #5f646d; color: white; text-shadow: 0px 0px 3px black;">
               <tr>
-                <th>Category ID</th>
-                <th>Category Name</th>
-                <th>Category Group</th>
+                <th>Brand ID</th>
+                <th>Brand Name</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <?php
-                $result = mysqli_query($conn,"SELECT * FROM product_category_table
-                          WHERE product_category_status='Active' ORDER by product_category_id ASC");
+                $result = mysqli_query($conn,"SELECT * FROM brand_table
+                          WHERE brand_status='Active' ORDER by brand_id ASC");
                 $num = mysqli_num_rows($result);
                 if($num > 0){
                     while ($row = mysqli_fetch_array($result)) {
-                      $category =  $row['product_category'];
-                      $group =  $row['product_category_group'];
-                      $id = $row['product_category_id'];
-                      $status = $row['product_category_status'];
+                      $id = $row['brand_id'];
+                      $brand =  $row['brand_name'];
+                      $status = $row['brand_status'];
                       if($status == "Active"){
                         echo '<tr>';
                         echo '<td>' . $id . '</td>';
-                        echo '<td>' . $category . '</td>';
-                        echo '<td>' . $group . '</td>';
+                        echo '<td>' . $brand . '</td>';
                         echo '<td>' . $status . '</td>';
                         echo '<td>
-                                <a href="#" data-toggle="modal" data-target="#update-category'.$id.'" >
+                                <a href="#" data-toggle="modal" data-target="#update-brand'.$id.'" >
                                       <button class="btn btn-primary btn-xs">
                                       Edit</button>
                                 </a>
-                                <a href="#" data-toggle="modal" data-target="#delete-category'.$id.'" >
+                                <a href="#" data-toggle="modal" data-target="#delete-brand'.$id.'" >
                                       <button class="btn  btn-danger btn-xs">
                                       Delete</button>
                                 </a>
@@ -120,7 +117,7 @@
 
 <script>
   $(function () {
-    $('#category-table').DataTable({
+    $('#brand-table').DataTable({
       "paging": true,
       "lengthChange": true,
       "searching": true,

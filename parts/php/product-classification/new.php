@@ -2,8 +2,8 @@
 
   require '../connection.php';
 
-  $classification = $_POST['classification_name'];
-  $category = $_POST['category_group'];
+  $classification = $_POST['classification-name'];
+  $category = $_POST['category-group'];
   $status = "Active";
 
   $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM product_classification_table

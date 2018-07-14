@@ -18,20 +18,11 @@
           <div class="row">
 
             <div class="col-6">
-              <form method="post">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="search" placeholder="Search Item" required>
-                  <div class="input-group-button">
-                    <button type="submit" class="btn btn-default" name="btn-search">
-                      <i class="fa fa-search"></i>
-                    </button>
-                  </div>
-                </div>
-              </form>
+              <h4 style="font-style: italic">Data Table</h4>
             </div>
 
             <div class="col-6">
-              <button data-target="#newClassification" data-toggle="modal" class="btn btn-success btn-md pull-right">
+              <button data-target="#new-classification" data-toggle="modal" class="btn btn-success btn-md pull-right">
                 New <i class="fa fa-plus"></i></button>
             </div>
 
@@ -41,8 +32,8 @@
 
         <div class="card-body">
 
-          <table id="example1" class="table table-bordered table-hover">
-            <thead style="background-color: #428bca; color: white; text-shadow: 0px 0px 3px black;">
+          <table id="classification-table" class="table table-bordered table-hover">
+            <thead style="background-color: #5f646d; color: white; text-shadow: 0px 0px 3px black;">
               <tr>
                 <th>Classification ID</th>
                 <th>Classification Name</th>
@@ -76,13 +67,13 @@
                         echo '<td>' . $category . '</td>';
                         echo '<td>' . $status . '</td>';
                         echo '<td>
-                                <a href="#" data-toggle="modal" data-target="#updateClassification'.$id.'" >
+                                <a href="#" data-toggle="modal" data-target="#update-classification'.$id.'" >
                                       <button class="btn btn-primary btn-xs">
-                                      Edit <span class="glyphicon glyphicon-pencil"></button>
+                                      Edit</button>
                                 </a>
-                                <a href="#" data-toggle="modal" data-target="#deleteClassification'.$id.'" >
+                                <a href="#" data-toggle="modal" data-target="#delete-classification'.$id.'" >
                                       <button class="btn  btn-danger btn-xs">
-                                      Delete <span class="glyphicon glyphicon-remove"></button>
+                                      Delete</button>
                                 </a>
                               </td>';
                         echo '</tr>';
@@ -132,18 +123,12 @@
 
 </section>
 
-<!-- <div class="box" style="overflow:auto; height: 650px">
-  <div class="box-body" style="overflow-x: hidden">
-
-  </div>
-</div> -->
-
 <script>
   $(function () {
-    $('#example1').DataTable({
+    $('#classification-table').DataTable({
       "paging": true,
-      "lengthChange": false,
-      "searching": false,
+      "lengthChange": true,
+      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": true

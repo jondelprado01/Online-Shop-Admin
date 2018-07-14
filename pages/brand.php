@@ -57,8 +57,8 @@
     $maintenanceOpen = "menu-open";
     $maintenanceActive = "active";
     $categoryActive = "";
-    $classificationActive = "active";
-    $brandActive = "";
+    $classificationActive = "";
+    $brandActive = "active";
 
     require '../parts/common/sidenav.php';
 
@@ -71,12 +71,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Product Classification</h1>
+            <h1 class="m-0 text-dark">Brand</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Product Classification</li>
+              <li class="breadcrumb-item active">Brand</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -89,7 +89,7 @@
       <div class="container-fluid">
         <?php
 
-          require '../parts/datagrid/product-classification.php';
+          require '../parts/datagrid/brand.php';
 
          ?>
       </div><!-- /.container-fluid -->
@@ -112,7 +112,6 @@
     require '../parts/common/footer.php';
 
    ?>
-
 
 </div>
 <!-- ./wrapper -->

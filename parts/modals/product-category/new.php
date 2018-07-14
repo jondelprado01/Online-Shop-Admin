@@ -1,4 +1,4 @@
-<div class="modal fade" id="newCategory"  role="dialog" style="width: 100%" aria-hidden="true">
+<div class="modal fade" id="new-category"  role="dialog" style="width: 100%" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,12 +13,12 @@
 
           <div class="form-group ">
             <label> Category Name</label>
-            <input type="text" class="form-control" name="category_name" placeholder="Enter Product Category" maxlength="40">
+            <input type="text" class="form-control" name="category-name" placeholder="Enter Product Category" maxlength="40">
           </div>
 
           <div class="form-group">
             <label> Category Group</label>
-            <select class="form-control" name="category_group">
+            <select class="form-control" name="category-group">
               <option value="None">--Select a Group--</option>
               <option value="Accessories">Accessories</option>
               <option value="Components">Components</option>
@@ -32,7 +32,7 @@
 
             <div class="form-group col-md-12">
               <label>Category Description</label>
-              <textarea class="form-control" rows="3" placeholder="Enter Description" name="category_desc" maxlength="100"></textarea>
+              <textarea class="form-control" rows="3" placeholder="Enter Description" name="category-desc" maxlength="100"></textarea>
             </div>
 
           </div>
