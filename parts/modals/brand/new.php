@@ -20,7 +20,7 @@
 
       <div class="modal-footer">
           <!-- <p style="color: red; font-style: italic">Note: All fields with <span class="glyphicon glyphicon-asterisk" style="color:red;  font-size: 10px"></span> are Required</p> -->
-          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" name="btn-cancel" onclick="reset()">Close</button>
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" name="btn-cancel">Close</button>
           <input type="submit" class="btn btn-success" name="btn-save" value="Save">
         </form>
 
