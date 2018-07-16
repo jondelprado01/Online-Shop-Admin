@@ -9,7 +9,7 @@
 
       <div class="modal-body">
 
-        <form class="categoryform" role="form" method="post" autocomplete="off" >
+        <form role="form" method="post" autocomplete="off" >
 
           <div class="form-group ">
             <label> Brand Name</label>

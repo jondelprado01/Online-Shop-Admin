@@ -2,7 +2,7 @@
 
   require '../connection.php';
   require '../parts/modals/brand/new.php';
-
+  require '../parts/modals/brand/edit.php';
  ?>
 
 <section class="content">
@@ -58,7 +58,7 @@
                         echo '<td>' . $brand . '</td>';
                         echo '<td>' . $status . '</td>';
                         echo '<td>
-                                <a href="#" data-toggle="modal" data-target="#update-brand'.$id.'" >
+                                <a href="#" data-toggle="modal" data-target="#edit-brand'.$id.'" >
                                       <button class="btn btn-primary btn-xs">
                                       Edit</button>
                                 </a>
