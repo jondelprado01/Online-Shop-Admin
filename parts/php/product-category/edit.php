@@ -2,23 +2,23 @@
 
   require '../connection.php';
 
-  $id = $_POST['category-id'];
+  $category_id = $_POST['category-id'];
   $category = $_POST['category-name'];
   $group = $_POST['category-group'];
-  $desc = $_POST['category-desc'];
-  $status = "Active";
+  $category_desc = $_POST['category-desc'];
 
   $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM product_category_table
-                 WHERE product_category = '$category' AND product_category_desc = '$desc'
-                 AND product_category_group = '$group' AND product_category_status = '$status'");
+                 WHERE product_category = '$category' AND product_category_desc = '$category_desc'
+                 AND product_category_group = '$group' AND product_category_status = 'Active'");
 
   $row = mysqli_fetch_row($checkRecord);
 
   if ($row[0] == 0) {
 
     mysqli_query($conn, "UPDATE product_category_table SET product_category = '$category',
-                 product_category_group = '$group', product_category_desc = '$desc' WHERE product_category_id = '$id'
-                 AND product_category_status = '$status'");
+                 product_category_group = '$group', product_category_desc = '$category_desc'
+                 WHERE product_category_id = '$category_id'
+                 AND product_category_status = 'Active'");
 
 ?>
 

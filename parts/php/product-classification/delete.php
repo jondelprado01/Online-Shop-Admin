@@ -1,9 +1,10 @@
 <?php
 
-  $brand_id = $_POST['brand-id'];
+  $classificationID = $_POST['classification-id'];
 
 
-  mysqli_query($conn, "UPDATE brand_table SET brand_status = 'Inactive' WHERE brand_id = '$brand_id'");
+  mysqli_query($conn, "UPDATE product_classification_table SET product_classification_status = 'Inactive'
+  WHERE product_classification_id = '$classificationID'");
 
  ?>
 

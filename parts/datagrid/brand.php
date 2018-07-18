@@ -50,32 +50,37 @@
               <?php
                 $result = mysqli_query($conn,"SELECT * FROM brand_table
                           WHERE brand_status='Active' ORDER by brand_id ASC");
+
                 $num = mysqli_num_rows($result);
 
                 if($num > 0){
 
                     while ($row = mysqli_fetch_array($result)) {
 
-                      $id = $row['brand_id'];
+                      $brand_id = $row['brand_id'];
                       $brand =  $row['brand_name'];
-                      $status = $row['brand_status'];
+                      $brand_status = $row['brand_status'];
 
                       if($select_status == "Active"){
-                        echo '<tr>';
-                        echo '<td>' . $id . '</td>';
-                        echo '<td>' . $brand . '</td>';
-                        echo '<td>' . $status . '</td>';
-                        echo '<td>
-                                <a href="#" data-toggle="modal" data-target="#edit-brand'.$id.'" >
-                                      <button class="btn btn-primary btn-xs">
-                                      Edit</button>
-                                </a>
-                                <a href="#" data-toggle="modal" data-target="#delete-brand'.$id.'" >
-                                      <button class="btn  btn-danger btn-xs">
-                                      Delete</button>
-                                </a>
-                              </td>';
-                        echo '</tr>';
+
+              ?>
+
+                        <tr>
+                          <td><?php echo $brand_id ?></td>
+                          <td><?php echo $brand ?></td>
+                          <td><?php echo $brand_status ?></td>
+                          <td>
+                            <a href="#" data-toggle="modal" data-target="#edit-brand<?php echo $brand_id ?>" >
+                              <button class="btn btn-primary btn-xs">Edit</button>
+                            </a>
+
+                            <a href="#" data-toggle="modal" data-target="#delete-brand<?php echo $brand_id ?>" >
+                              <button class="btn btn-danger btn-xs">Delete</button>
+                            </a>
+                          </td>
+                        </tr>
+
+              <?php
                       }
                     }
                   }
@@ -89,21 +94,24 @@
                  $result = mysqli_query($conn,"SELECT * FROM brand_table WHERE brand_status='Inactive'");
 
                      while ($row = mysqli_fetch_array($result)) {
-                       $id = $row['brand_id'];
+                       $brand_id = $row['brand_id'];
                        $brand = $row['brand_name'];
-                       $status = $row['brand_status'];
+                       $brand_status = $row['brand_status'];
 
-                      echo '<tr>';
-                      echo '<td>' . $id . '</td>';
-                      echo '<td>' . $brand . '</td>';
-                      echo '<td>' . $status . '</td>';
-                      echo '<td>
-                              <a href="#" data-toggle="modal" data-target="#retrieve-brand'.$id.'" >
-                                    <button class="btn btn-warning btn-xs">
-                                    Retrieve </button>
-                              </a>
-                            </td>';
-                      echo '</tr>';
+              ?>
+
+                      <tr>
+                        <td><?php echo $brand_id ?></td>
+                        <td><?php echo $brand ?></td>
+                        <td><?php echo $brand_status ?></td>
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#retrieve-brand<?php echo $brand_id ?>" >
+                            <button class="btn btn-warning btn-xs">Retrieve</button>
+                          </a>
+                        </td>
+                      </tr>
+
+              <?php
                   }
                 }
               }

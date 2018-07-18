@@ -1,6 +1,6 @@
 <?php
 
-  $id = $_POST['category-id'];
+  $category_id = $_POST['category-id'];
   $category = $_POST['category-name'];
 
   $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM product_category_table
@@ -11,7 +11,7 @@
   if ($row[0] == 0) {
 
       mysqli_query($conn, "UPDATE product_category_table SET product_category_status = 'Active'
-      WHERE product_category_id = '$id'");
+      WHERE product_category_id = '$category_id'");
 
 ?>
   <script>

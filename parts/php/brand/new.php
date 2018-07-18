@@ -3,16 +3,15 @@
   require '../connection.php';
 
   $brand = $_POST['brand-name'];
-  $status = "Active";
 
   $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM brand_table
-                 WHERE brand_name = '$brand' AND brand_status = '$status'");
+                 WHERE brand_name = '$brand' AND brand_status = 'Active'");
 
   $row = mysqli_fetch_row($checkRecord);
 
   if ($row[0] == 0) {
 
-    mysqli_query($conn, "INSERT INTO brand_table VALUES('', '$brand', '$status')");
+    mysqli_query($conn, "INSERT INTO brand_table VALUES('', '$brand', 'Active')");
 
 ?>
 

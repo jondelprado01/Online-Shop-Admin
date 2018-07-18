@@ -1,15 +1,19 @@
 <?php
 
-  $brand_id = $_POST['brand-id'];
-  $brand = $_POST['brand-name'];
+  $classification_id = $_POST['classification-id'];
+  $classification = $_POST['classification-name'];
+  $category_id = $_POST['category-id'];
 
-  $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM brand_table WHERE brand_name = '$brand' AND brand_status = 'Active'");
+  $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM product_classification_table
+                 WHERE product_classification = '$classification' AND product_category_id = '$category_id'
+                 AND product_classification_status = 'Active'");
 
   $row = mysqli_fetch_row($checkRecord);
 
   if ($row[0] == 0) {
 
-      mysqli_query($conn, "UPDATE brand_table SET brand_status = 'Active' WHERE brand_id = '$brand_id'");
+      mysqli_query($conn, "UPDATE product_classification_table SET product_classification_status = 'Active'
+      WHERE product_classification_id = '$classification_id'");
 
 ?>
   <script>
@@ -20,7 +24,7 @@
         'message': 'Record Retrieved Successfully' ,
         'onok': function(){
           alertify.success('Retrieved');
-          window.location = 'brand.php';
+          window.location = 'product-classification.php';
         }
     }).show();
   </script>

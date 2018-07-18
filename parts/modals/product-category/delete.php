@@ -22,7 +22,8 @@
 
           <form role="form" method="post" autocomplete="off" >
 
-            <h4>Are you sure do you want to delete "<?php echo $category ?>"?</h4>
+            <h4 align="center">Are you sure do you want to delete: </h4>
+            <h4 style="font-style: italic; color: blue" align="center">"<?php echo $category ?>"</h4>
 
         </div>
 

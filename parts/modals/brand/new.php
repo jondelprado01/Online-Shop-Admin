@@ -13,13 +13,12 @@
 
           <div class="form-group ">
             <label> Brand Name</label>
-            <input type="text" class="form-control" name="brand-name" placeholder="Enter Brand Name" maxlength="40">
+            <input type="text" class="form-control" name="brand-name" placeholder="Enter Brand Name" maxlength="40" required>
           </div>
 
       </div>
 
       <div class="modal-footer">
-          <!-- <p style="color: red; font-style: italic">Note: All fields with <span class="glyphicon glyphicon-asterisk" style="color:red;  font-size: 10px"></span> are Required</p> -->
           <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" name="btn-cancel">Close</button>
           <input type="submit" class="btn btn-success" name="btn-save" value="Save">
         </form>

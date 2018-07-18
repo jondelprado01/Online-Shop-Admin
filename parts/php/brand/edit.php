@@ -2,17 +2,19 @@
 
   require '../connection.php';
 
-  $id = $_POST['brand-id'];
+  $brand_id = $_POST['brand-id'];
   $brand = $_POST['brand-name'];
-  $status = "Active";
+  $brand_status = "Active";
 
-  $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM brand_table WHERE brand_name = '$brand' AND brand_status = 'Active'");
+  $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM brand_table
+                 WHERE brand_name = '$brand' AND brand_status = 'Active'");
 
   $row = mysqli_fetch_row($checkRecord);
 
   if ($row[0] == 0) {
 
-    mysqli_query($conn, "UPDATE brand_table SET brand_name = '$brand' WHERE brand_id = '$id' AND brand_status = '$status'");
+    mysqli_query($conn, "UPDATE brand_table SET brand_name = '$brand'
+    WHERE brand_id = '$brand_id' AND brand_status = '$brand_status'");
 
 ?>
 

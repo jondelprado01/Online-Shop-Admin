@@ -1,10 +1,10 @@
 <?php
 
-  $id = $_POST['category-id'];
+  $categoryID = $_POST['category-id'];
 
 
   mysqli_query($conn, "UPDATE product_category_table SET product_category_status = 'Inactive'
-  WHERE product_category_id = '$id'");
+  WHERE product_category_id = '$categoryID'");
 
  ?>
 

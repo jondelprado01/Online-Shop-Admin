@@ -59,28 +59,31 @@
 
                     while ($row = mysqli_fetch_array($result)) {
 
+                      $category_id = $row['product_category_id'];
                       $category =  $row['product_category'];
                       $group =  $row['product_category_group'];
-                      $id = $row['product_category_id'];
-                      $status = $row['product_category_status'];
+                      $category_status = $row['product_category_status'];
 
                       if($select_status == "Active"){
-                        echo '<tr>';
-                        echo '<td>' . $id . '</td>';
-                        echo '<td>' . $category . '</td>';
-                        echo '<td>' . $group . '</td>';
-                        echo '<td>' . $status . '</td>';
-                        echo '<td>
-                                <a href="#" data-toggle="modal" data-target="#edit-category'.$id.'" >
-                                      <button class="btn btn-primary btn-xs">
-                                      Edit</button>
-                                </a>
-                                <a href="#" data-toggle="modal" data-target="#delete-category'.$id.'" >
-                                      <button class="btn  btn-danger btn-xs">
-                                      Delete</button>
-                                </a>
-                              </td>';
-                        echo '</tr>';
+
+                ?>
+                        <tr>
+                          <td><?php echo $category_id ?></td>
+                          <td><?php echo $category ?></td>
+                          <td><?php echo $group ?></td>
+                          <td><?php echo $category_status ?></td>
+                          <td>
+                            <a href="#" data-toggle="modal" data-target="#edit-category<?php echo $category_id ?>" >
+                              <button class="btn btn-primary btn-xs">Edit</button>
+                            </a>
+
+                            <a href="#" data-toggle="modal" data-target="#delete-category<?php echo $category_id ?>" >
+                              <button class="btn btn-danger btn-xs">Delete</button>
+                            </a>
+                          </td>
+                        </tr>
+                <?php
+
                       }
                     }
                   }
@@ -95,23 +98,25 @@
 
                          while ($row = mysqli_fetch_array($result)) {
 
-                           $id = $row['product_category_id'];
+                           $category_id = $row['product_category_id'];
                            $category = $row['product_category'];
                            $group = $row['product_category_group'];
-                           $status = $row['product_category_status'];
+                           $category_status = $row['product_category_status'];
 
-                          echo '<tr>';
-                          echo '<td>' . $id . '</td>';
-                          echo '<td>' . $category . '</td>';
-                          echo '<td>' . $group . '</td>';
-                          echo '<td>' . $status . '</td>';
-                          echo '<td>
-                                  <a href="#" data-toggle="modal" data-target="#retrieve-category'.$id.'" >
-                                        <button class="btn btn-warning btn-xs">
-                                        Retrieve </button>
-                                  </a>
-                                </td>';
-                          echo '</tr>';
+              ?>
+                          <tr>
+                            <td><?php echo $category_id ?></td>
+                            <td><?php echo $category ?></td>
+                            <td><?php echo $group ?></td>
+                            <td><?php echo $category_status ?></td>
+                            <td>
+                              <a href="#" data-toggle="modal" data-target="#retrieve-category<?php echo $category_id ?>" >
+                                <button class="btn btn-warning btn-xs">Retrieve</button>
+                              </a>
+                            </td>
+                          </tr>
+
+              <?php
                       }
                     }
                   }
