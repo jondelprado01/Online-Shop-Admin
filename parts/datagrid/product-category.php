@@ -50,64 +50,73 @@
             </thead>
             <tbody>
               <?php
-                $result = mysqli_query($conn,"SELECT * FROM product_category_table
+                $retrieveCategory = mysqli_query($conn,"SELECT * FROM product_category_table
                           WHERE product_category_status='Active' ORDER by product_category_id ASC");
 
-                $num = mysqli_num_rows($result);
-
-                if($num > 0){
-
-                    while ($row = mysqli_fetch_array($result)) {
+                    while ($row = mysqli_fetch_array($retrieveCategory)) {
 
                       $category_id = $row['product_category_id'];
                       $category =  $row['product_category'];
-                      $group =  $row['product_category_group'];
+                      $group_id =  $row['product_group_id'];
                       $category_status = $row['product_category_status'];
 
-                      if($select_status == "Active"){
+                      $retrieveGroup = mysqli_query($conn, "SELECT product_group FROM product_group_table
+                                       WHERE product_group_id = '$group_id' AND product_group_status = 'Active'");
 
-                ?>
-                        <tr>
-                          <td><?php echo $category_id ?></td>
-                          <td><?php echo $category ?></td>
-                          <td><?php echo $group ?></td>
-                          <td><?php echo $category_status ?></td>
-                          <td>
-                            <a href="#" data-toggle="modal" data-target="#edit-category<?php echo $category_id ?>" >
-                              <button class="btn btn-primary btn-xs">Edit</button>
-                            </a>
+                      while ($row2 = mysqli_fetch_array($retrieveGroup)) {
+                        $product_group = $row2['product_group'];
 
-                            <a href="#" data-toggle="modal" data-target="#delete-category<?php echo $category_id ?>" >
-                              <button class="btn btn-danger btn-xs">Delete</button>
-                            </a>
-                          </td>
-                        </tr>
-                <?php
+                        if($select_status == "Active"){
 
+                  ?>
+                          <tr>
+                            <td><?php echo $category_id ?></td>
+                            <td><?php echo $category ?></td>
+                            <td><?php echo $product_group ?></td>
+                            <td><?php echo $category_status ?></td>
+                            <td>
+                              <a href="#" data-toggle="modal" data-target="#edit-category<?php echo $category_id ?>" >
+                                <button class="btn btn-primary btn-xs">Edit</button>
+                              </a>
+
+                              <a href="#" data-toggle="modal" data-target="#delete-category<?php echo $category_id ?>" >
+                                <button class="btn btn-danger btn-xs">Delete</button>
+                              </a>
+                            </td>
+                          </tr>
+                  <?php
+
+                        }
                       }
                     }
-                  }
+
                   if(isset($_POST['btn-status'])){
 
                    $select_status = $_POST['select-status'];
 
                    if($select_status == "Inactive"){
 
-                     $result = mysqli_query($conn, "SELECT * FROM product_category_table
+                     $retrieveCategory = mysqli_query($conn, "SELECT * FROM product_category_table
                                WHERE product_category_status='Inactive'");
 
-                         while ($row = mysqli_fetch_array($result)) {
+                         while ($row = mysqli_fetch_array($retrieveCategory)) {
 
                            $category_id = $row['product_category_id'];
                            $category = $row['product_category'];
-                           $group = $row['product_category_group'];
+                           $group_id = $row['product_group_id'];
                            $category_status = $row['product_category_status'];
+
+                           $retrieveGroup = mysqli_query($conn, "SELECT product_group FROM product_group_table
+                                            WHERE product_group_id = '$group_id' AND product_group_status = 'Active'");
+
+                           while ($row2 = mysqli_fetch_array($retrieveGroup)) {
+                             $product_group = $row2['product_group'];
 
               ?>
                           <tr>
                             <td><?php echo $category_id ?></td>
                             <td><?php echo $category ?></td>
-                            <td><?php echo $group ?></td>
+                            <td><?php echo $product_group ?></td>
                             <td><?php echo $category_status ?></td>
                             <td>
                               <a href="#" data-toggle="modal" data-target="#retrieve-category<?php echo $category_id ?>" >
@@ -117,6 +126,7 @@
                           </tr>
 
               <?php
+                        }
                       }
                     }
                   }

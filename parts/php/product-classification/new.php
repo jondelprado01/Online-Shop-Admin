@@ -3,7 +3,7 @@
   require '../connection.php';
 
   $classification = $_POST['classification-name'];
-  $category = $_POST['category-group'];
+  $category = $_POST['category-name'];
 
   $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM product_classification_table
                  WHERE product_classification = '$classification' AND product_category_id = '$category'

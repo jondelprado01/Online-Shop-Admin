@@ -9,14 +9,14 @@
 
   $checkRecord = mysqli_query($conn, "SELECT COUNT(*) FROM product_category_table
                  WHERE product_category = '$category' AND product_category_desc = '$category_desc'
-                 AND product_category_group = '$group' AND product_category_status = 'Active'");
+                 AND product_group_id = '$group' AND product_category_status = 'Active'");
 
   $row = mysqli_fetch_row($checkRecord);
 
   if ($row[0] == 0) {
 
     mysqli_query($conn, "UPDATE product_category_table SET product_category = '$category',
-                 product_category_group = '$group', product_category_desc = '$category_desc'
+                 product_group_id = '$group', product_category_desc = '$category_desc'
                  WHERE product_category_id = '$category_id'
                  AND product_category_status = 'Active'");
 

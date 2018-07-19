@@ -6,7 +6,7 @@ $retrieveCategory = mysqli_query($conn, "SELECT * FROM product_category_table
     while ($row = mysqli_fetch_array($retrieveCategory)) {
       $category_id = $row['product_category_id'];
       $category = $row['product_category'];
-      $group = $row['product_category_group'];
+      $group_id = $row['product_group_id'];
       $desc = $row['product_category_desc'];
 ?>
 
@@ -28,45 +28,38 @@ $retrieveCategory = mysqli_query($conn, "SELECT * FROM product_category_table
                   <input type="text" value="<?php echo $category ?>" class="form-control" name="category-name" placeholder="Enter Product Category" maxlength="40" required>
                 </div>
 
-                <?php
-
-                $accessories = "";
-                $components = "";
-                $laptops = "";
-                $network = "";
-                $peripherals = "";
-
-                if ($group == "Accessories") {
-                  $accessories= "selected";
-                }
-
-                elseif ($group == "Components") {
-                  $components = "selected";
-                }
-
-                elseif ($group == "Laptops") {
-                  $laptops = "selected";
-                }
-
-                elseif ($group == "Network Hardwares") {
-                  $network = "selected";
-                }
-
-                elseif ($group == "Peripherals") {
-                  $peripherals = "selected";
-                }
-
-                 ?>
-
                 <div class="form-group">
                   <label> Category Group</label>
                   <select class="form-control" name="category-group" required>
-                    <option value="">--Select a Group--</option>
-                    <option value="Accessories" <?php echo $accessories ?>>Accessories</option>
-                    <option value="Components" <?php echo $components ?>>Components</option>
-                    <option value="Laptops" <?php echo $laptops ?>>Laptops</option>
-                    <option value="Network Hardwares" <?php echo $network ?>>Network Hardwares</option>
-                    <option value="Peripherals" <?php echo $peripherals ?>>Peripherals</option>
+                    <?php
+
+                      $category_group_join = mysqli_query($conn, "SELECT pg.product_group_id FROM product_group_table pg
+                                                INNER JOIN product_category_table pc ON pg.product_category_id = pc.product_category_id
+                                                WHERE pc.product_category_id = '$group_id'");
+
+                      while ($row = mysqli_fetch_array($category_group_join)) {
+                        $product_group_id = $row['product_group_id'];
+                      }
+
+                      $retrieveGroup = mysqli_query($conn, "SELECT * FROM product_group_table
+                                          WHERE product_group_status = 'Active' ORDER BY product_group ASC");
+
+                      while ($row2 = mysqli_fetch_array($retrieveGroup)) {
+                        $product_group_id = $row2['product_group_id'];
+                        $product_group = $row2['product_group'];
+
+                        if ($product_group_id == $group_id) {
+                          $selected = "selected";
+                        }
+                        else {
+                          $selected = "";
+                        }
+                    ?>
+                        <option <?php echo $selected ?> value="<?php echo $product_group_id ?>"><?php echo $product_group ?></option>
+
+                    <?php
+                      }
+                    ?>
                   </select>
                 </div>
 

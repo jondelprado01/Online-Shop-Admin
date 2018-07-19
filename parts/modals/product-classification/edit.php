@@ -26,37 +26,16 @@
         <form role="form" method="post" autocomplete="off" >
 
           <div class="form-group">
-            <label> Category</label>
-            <select class="form-control" name="category-group" required>
-              <option value="">-Select a Category-</option>
-            <?php
+            <label>Product Classification</label>
+            <select class="form-control category-group" name="category-group" required>
 
-              $classificationCategory = mysqli_query($conn, "SELECT pc.product_category_id FROM product_category_table pc
-                                        INNER JOIN product_classification_table pcl ON pc.product_category_id = pcl.product_category_id
-                                        WHERE pcl.product_classification_id = '$classificationID'");
-              while ($row2 = mysqli_fetch_array($classificationCategory)) {
-                $categoryID = $row2['product_category_id'];
-              }
+            </select>
+          </div>
 
-              $retrieveCategory = mysqli_query($conn, "SELECT * FROM product_category_table
-                                  WHERE product_category_status = 'Active' ORDER BY product_category ASC");
+          <div class="form-group">
+            <label>Product Category</label>
+            <select class="form-control category-name" name="category-name">
 
-              while ($row3 = mysqli_fetch_array($retrieveCategory)) {
-                $category = $row3['product_category'];
-                $tempID = $row3['product_category_id'];
-
-                if ($tempID == $categoryID) {
-                  $selected = "selected";
-                }
-                else {
-                  $selected = "";
-                }
-            ?>
-                <option <?php echo $selected ?> value="<?php echo $tempID ?>"><?php echo $category ?></option>
-
-            <?php
-              }
-            ?>
             </select>
           </div>
 
@@ -89,3 +68,62 @@
   }
 
  ?>
+
+ <script>
+
+   function Group(){
+     $('.category-group').empty();
+     $('.category-group').append("<option value=''>Loading....</option>");
+     $.ajax({
+
+         type: "POST",
+         cache:'false',
+         url: "../parts/php/product-classification/retrieve-group.php",
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+
+         success: function(data_group){
+           $('.category-group').empty();
+           $('.category-group').append("<option value = ''>--Select Category Group--</option>");
+           $.each(data_group,function(i,item){
+             $('.category-group').append('<option value = "'+ data_group[i].group_id +'">'+ data_group[i].group_name +'</option>');
+           });
+         },
+       complete: function(){
+       }
+     });
+   }
+
+   function Category(cat){
+     $('.category-name').empty();
+     $('.category-name').append("<option value='None'>Loading....</option>");
+     $.ajax({
+
+         type: "POST",
+         cache:'false',
+         url: "../parts/php/product-classification/retrieve-category.php?cat="+cat,
+         contentType: "application/json; charset=utf-8",
+         dataType: "json",
+
+         success: function(data_category){
+           $('.category-name').empty();
+           $('.category-name').append("<option value = ''>--Select Category--</option>");
+           $.each(data_category,function(i,item){
+             $('.category-name').append('<option value = "'+ data_category[i].category_id +'">'+ data_category[i].category_name +'</option>');
+           });
+         },
+       complete: function(){
+       }
+     });
+   }
+
+   $(document).ready(function(){
+   Group();
+   $(".category-group").change(function(){
+     var category_group_id = $(".category-group").val();
+     Category(category_group_id);
+   });
+ });
+
+
+ </script>

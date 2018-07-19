@@ -16,11 +16,24 @@
             <label> Category Group</label>
             <select class="form-control" name="category-group" required>
               <option value="">--Select a Group--</option>
-              <option value="Accessories">Accessories</option>
-              <option value="Components">Components</option>
-              <option value="Laptops">Laptops</option>
-              <option value="Network Hardwares">Network Hardwares</option>
-              <option value="Peripherals">Peripherals</option>
+              <?php
+
+                $retrieveGroup = mysqli_query($conn, "SELECT * FROM product_group_table
+                                 WHERE product_group_status = 'Active' ORDER BY product_group ASC");
+
+                while ($row = mysqli_fetch_array($retrieveGroup)) {
+                  $product_group_id = $row['product_group_id'];
+                  $product_group = $row['product_group'];
+
+              ?>
+
+                  <option value="<?php echo $product_group_id ?>"><?php echo $product_group ?></option>
+
+              <?php
+
+                }
+
+              ?>
             </select>
           </div>
 
