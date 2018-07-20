@@ -38,7 +38,7 @@
       </div>
 
       <div class="modal-footer">
-          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" name="btn-cancel" onclick="Reset()">Close</button>
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal" name="btn-cancel">Close</button>
           <input type="submit" class="btn btn-success" name="btn-save" value="Save">
         </form>
 
