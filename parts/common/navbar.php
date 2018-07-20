@@ -10,7 +10,7 @@
       <select name="select-status" class="form-control">
         <?php
 
-        $select_status = isset($_POST['select-status'])? $_POST['select-status'] : "Active";
+        $select_status = isset($_GET['select-status'])? $_GET['select-status'] : "Active";
 
         if($select_status == "Active"){
           $active = "selected";

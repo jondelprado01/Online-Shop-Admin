@@ -53,8 +53,8 @@
           </ul>
         </li>
 
-        <li class="nav-item has-treeview menu-close">
-          <a href="#" class="nav-link">
+        <li class="nav-item has-treeview <?php echo $transactionOpen ?>">
+          <a href="#" class="nav-link <?php echo $transactionActive ?>">
             <i class="nav-icon fa fa-dollar"></i>
             <p>
               Transaction
@@ -63,12 +63,21 @@
           </a>
 
           <ul class="nav nav-treeview">
+
+            <li class="nav-item">
+              <a href="../pages/supplier.php" class="nav-link <?php echo $supplierActive ?>">
+                <i class="fa fa-circle-o nav-icon"></i>
+                <p>Supplier</p>
+              </a>
+            </li>
+
             <li class="nav-item">
               <a href="../pages/product.php" class="nav-link">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>Product</p>
               </a>
             </li>
+
           </ul>
         </li>
 

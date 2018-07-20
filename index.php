@@ -123,7 +123,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="pages/supplier.php" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Supplier</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="pages/product.php" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Product</p>
                 </a>
