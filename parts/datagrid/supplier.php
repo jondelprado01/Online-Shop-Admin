@@ -1,10 +1,10 @@
 <?php
 
   require '../connection.php';
-  // require '../parts/modals/brand/new.php';
-  // require '../parts/modals/brand/edit.php';
-  // require '../parts/modals/brand/delete.php';
-  // require '../parts/modals/brand/retrieve.php';
+  require '../parts/modals/supplier/new.php';
+  // require '../parts/modals/supplier/edit.php';
+  // require '../parts/modals/supplier/delete.php';
+  // require '../parts/modals/supplier/retrieve.php';
  ?>
 
 <section class="content">

@@ -8,7 +8,22 @@
     require '../parts/common/head.php';
 
   ?>
+<style media="screen">
+  .list-inline {
+  display: flex;
+  justify-content: center;
+  }
 
+  hr {
+      display: block;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      margin-left: auto;
+      margin-right: auto;
+      border-style: inset;
+      border-width: 1px;
+  }
+</style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
