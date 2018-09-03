@@ -76,11 +76,11 @@
                             <td><?php echo $category_status ?></td>
                             <td>
                               <a href="#" data-toggle="modal" data-target="#edit-category<?php echo $category_id ?>" >
-                                <button class="btn btn-primary btn-xs">Edit</button>
+                                <button style="width: 70px;" class="btn btn-primary btn-xs">Edit</button>
                               </a>
 
                               <a href="#" data-toggle="modal" data-target="#delete-category<?php echo $category_id ?>" >
-                                <button class="btn btn-danger btn-xs">Delete</button>
+                                <button style="width: 70px;" class="btn btn-danger btn-xs">Delete</button>
                               </a>
                             </td>
                           </tr>
